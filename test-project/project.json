@@ -1,0 +1,37 @@
+{
+  "name": "test-project",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "test-project/src",
+  "projectType": "library",
+  "targets": {
+    "broken-cache": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "echo hello",
+          "echo hello $(date) >> tools/temp.log"
+        ],
+        "parallel": false
+      },
+      "inputs": [
+        "migrations"
+      ],
+      "outputs": [
+        "{workspaceRoot}/tools/temp.log"
+      ]
+    },
+    "ok-cache": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "echo hello"
+        ],
+        "parallel": false
+      },
+      "inputs": [
+        "migrations"
+      ]
+    }
+  },
+  "tags": []
+}
