@@ -1,3 +1,4 @@
 !tools/temp.log
 !migrations/
 !test-project/migrations
+!cachestuff/ignored/*.log
