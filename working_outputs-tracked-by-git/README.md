@@ -10,7 +10,7 @@ everything works.
 
 ## MAKING NO CHANGES TO input-a
 
-to begin, make sure you `pnpm nx reset`
+to begin, make sure you `pnpm nx reset`, delete all files in `cachestuff/included/`
 
 ### run 1
 
