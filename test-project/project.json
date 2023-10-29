@@ -4,6 +4,60 @@
   "sourceRoot": "test-project/src",
   "projectType": "library",
   "targets": {
+    "a": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "echo a",
+          "echo A $(date) >> cachestuff/output-a.log"
+        ],
+        "parallel": false
+      },
+      "inputs": [
+        "{workspaceRoot}/cachestuff/input-a"
+      ],
+      "outputs": [
+        "{workspaceRoot}/cachestuff/output-a.log"
+      ]
+    },
+    "b": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "echo b",
+          "echo B $(date) >> cachestuff/output-b.log"
+        ],
+        "parallel": false
+      },
+      "inputs": [
+        "{workspaceRoot}/cachestuff/output-a.log"
+      ],
+      "outputs": [
+        "{workspaceRoot}/cachestuff/output-b.log"
+      ],
+      "dependsOn": [
+        "a"
+      ]
+    },
+    "c": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "echo c",
+          "echo C $(date) >> cachestuff/output-c.log"
+        ],
+        "parallel": false
+      },
+      "inputs": [
+        "{workspaceRoot}/cachestuff/output-b.log"
+      ],
+      "outputs": [
+        "{workspaceRoot}/cachestuff/output-c.log"
+      ],
+      "dependsOn": [
+        "b"
+      ]
+    },
     "broken-cache": {
       "executor": "nx:run-commands",
       "options": {

@@ -1,6 +1,15 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "targetDefaults": {
+    "a": {
+      "cache": true
+    },
+    "b": {
+      "cache": true
+    },
+    "c": {
+      "cache": true
+    },
     "build": {
       "cache": true,
       "dependsOn": [
