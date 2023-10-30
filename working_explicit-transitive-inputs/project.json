@@ -1,7 +1,7 @@
 {
-  "name": "ignored-outputs",
+  "name": "explicit-inputs",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "ignored-outputs/src",
+  "sourceRoot": "explicit-inputs/src",
   "projectType": "library",
   "targets": {
     "a": {
@@ -33,6 +33,9 @@
       },
       "inputs": [
         {
+          "runtime": "node ./tools/hash-files.js 'cachestuff/input-a'"
+        },
+        {
           "runtime": "node ./tools/hash-files.js 'cachestuff/ignored/output-a.log'"
         }
       ],
@@ -53,6 +56,12 @@
         "parallel": false
       },
       "inputs": [
+        {
+          "runtime": "node ./tools/hash-files.js 'cachestuff/input-a'"
+        },
+        {
+          "runtime": "node ./tools/hash-files.js 'cachestuff/ignored/output-a.log'"
+        },
         {
           "runtime": "node ./tools/hash-files.js 'cachestuff/ignored/output-b.log'"
         }
