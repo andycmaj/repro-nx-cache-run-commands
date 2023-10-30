@@ -5,6 +5,7 @@
   "scripts": {},
   "private": true,
   "devDependencies": {
-    "nx": "17.0.2"
+    "nx": "17.0.2",
+    "hash-files": "1.1.1"
   }
 }

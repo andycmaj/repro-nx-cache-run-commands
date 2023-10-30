@@ -14,7 +14,9 @@
         "parallel": false
       },
       "inputs": [
-        "{workspaceRoot}/cachestuff/input-a"
+        {
+          "runtime": "node ./tools/hash-files.js 'cachestuff/input-a'"
+        }
       ],
       "outputs": [
         "{workspaceRoot}/cachestuff/ignored/output-a.log"
@@ -30,7 +32,9 @@
         "parallel": false
       },
       "inputs": [
-        "{workspaceRoot}/cachestuff/ignored/output-a.log"
+        {
+          "runtime": "node ./tools/hash-files.js 'cachestuff/ignored/output-a.log'"
+        }
       ],
       "outputs": [
         "{workspaceRoot}/cachestuff/ignored/output-b.log"
@@ -49,7 +53,9 @@
         "parallel": false
       },
       "inputs": [
-        "{workspaceRoot}/cachestuff/ignored/output-b.log"
+        {
+          "runtime": "node ./tools/hash-files.js 'cachestuff/ignored/output-b.log'"
+        }
       ],
       "outputs": [
         "{workspaceRoot}/cachestuff/ignored/output-c.log"
