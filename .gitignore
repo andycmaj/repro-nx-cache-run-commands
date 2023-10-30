@@ -42,4 +42,4 @@ Thumbs.db
 
 tools/temp.log
 
-cachestuff/ignored/
+cachestuff/ignored/*.log
