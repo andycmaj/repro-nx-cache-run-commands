@@ -17,12 +17,12 @@ to begin, make sure you `pnpm nx reset`, delete all files in `cachestuff/include
 nothing cached
 
 ```bash
-❯ pnpm nx c ignored-outputs-broken
-> nx run ignored-outputs-broken:a
+❯ pnpm nx c ignored-outputs
+> nx run ignored-outputs:a
 a
-> nx run ignored-outputs-broken:b
+> nx run ignored-outputs:b
 b
-> nx run ignored-outputs-broken:c
+> nx run ignored-outputs:c
 c
 ```
 
@@ -31,12 +31,12 @@ c
 only `a` is cached
 
 ```bash
-❯ pnpm nx c ignored-outputs-broken
-> nx run ignored-outputs-broken:a  [existing outputs match the cache, left as is]
+❯ pnpm nx c ignored-outputs
+> nx run ignored-outputs:a  [existing outputs match the cache, left as is]
 a
-> nx run ignored-outputs-broken:b
+> nx run ignored-outputs:b
 b
-> nx run ignored-outputs-broken:c
+> nx run ignored-outputs:c
 c
 ```
 
@@ -45,12 +45,12 @@ c
 only `a` and `b` are cached
 
 ```bash
-❯ pnpm nx c ignored-outputs-broken
-> nx run ignored-outputs-broken:a  [existing outputs match the cache, left as is]
+❯ pnpm nx c ignored-outputs
+> nx run ignored-outputs:a  [existing outputs match the cache, left as is]
 a
-> nx run ignored-outputs-broken:b  [existing outputs match the cache, left as is]
+> nx run ignored-outputs:b  [existing outputs match the cache, left as is]
 b
-> nx run ignored-outputs-broken:c
+> nx run ignored-outputs:c
 c
 ```
 
@@ -59,12 +59,12 @@ c
 finally, `a`, `b`, `c` are all cached
 
 ```bash
-❯ pnpm nx c ignored-outputs-broken
-> nx run ignored-outputs-broken:a  [existing outputs match the cache, left as is]
+❯ pnpm nx c ignored-outputs
+> nx run ignored-outputs:a  [existing outputs match the cache, left as is]
 a
-> nx run ignored-outputs-broken:b  [existing outputs match the cache, left as is]
+> nx run ignored-outputs:b  [existing outputs match the cache, left as is]
 b
-> nx run ignored-outputs-broken:c  [existing outputs match the cache, left as is]
+> nx run ignored-outputs:c  [existing outputs match the cache, left as is]
 c
 ```
 
@@ -79,12 +79,12 @@ even though the output from `a`, also `b`'s input, has changed, NX hasn't re-has
 before running `b`, so it uses cached `b`.
 
 ```bash
-❯ pnpm nx c ignored-outputs-broken
-> nx run ignored-outputs-broken:a
+❯ pnpm nx c ignored-outputs
+> nx run ignored-outputs:a
 a
-> nx run ignored-outputs-broken:b  [existing outputs match the cache, left as is]
+> nx run ignored-outputs:b  [existing outputs match the cache, left as is]
 b
-> nx run ignored-outputs-broken:c  [existing outputs match the cache, left as is]
+> nx run ignored-outputs:c  [existing outputs match the cache, left as is]
 c
 ```
 
@@ -94,12 +94,12 @@ c
 these hashes BEFORE all execution.
 
 ```bash
-❯ pnpm nx c ignored-outputs-broken
-> nx run ignored-outputs-broken:a  [existing outputs match the cache, left as is]
+❯ pnpm nx c ignored-outputs
+> nx run ignored-outputs:a  [existing outputs match the cache, left as is]
 a
-> nx run ignored-outputs-broken:b
+> nx run ignored-outputs:b
 b
-> nx run ignored-outputs-broken:c  [existing outputs match the cache, left as is]
+> nx run ignored-outputs:c  [existing outputs match the cache, left as is]
 c
 ```
 
@@ -109,11 +109,11 @@ now that `b` has been re-run, NX can re-calculate `c`'s input (`b`'s output) BEF
 the next run, and it now sees that `c` needs to be re-run.
 
 ```bash
-❯ pnpm nx c ignored-outputs-broken
-> nx run ignored-outputs-broken:a  [existing outputs match the cache, left as is]
+❯ pnpm nx c ignored-outputs
+> nx run ignored-outputs:a  [existing outputs match the cache, left as is]
 a
-> nx run ignored-outputs-broken:b  [existing outputs match the cache, left as is]
+> nx run ignored-outputs:b  [existing outputs match the cache, left as is]
 b
-> nx run ignored-outputs-broken:c
+> nx run ignored-outputs:c
 c
 ```
